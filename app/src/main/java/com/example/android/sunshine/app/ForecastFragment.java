@@ -1,5 +1,6 @@
 package com.example.android.sunshine.app;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,8 +13,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +38,7 @@ import java.util.List;
 public class ForecastFragment extends Fragment {
 
     public static String URL_FORECAST_API = "http://api.openweathermap.org/data/2.5/forecast/daily?";
+    public static String FORECAST_DETAIL = "ForecastDetail";
 
     public ForecastFragment() {
     }
@@ -61,6 +65,18 @@ public class ForecastFragment extends Fragment {
 
         updateForecastDataList();
 
+        forecastListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String text = forecastAdapter.getItem(position);
+                Intent mIntent = new Intent(getActivity(), DetailActivity.class);
+
+                mIntent.putExtra(FORECAST_DETAIL, text);
+
+                startActivity(mIntent);
+            }
+        });
+
         return rootView;
     }
 
@@ -68,25 +84,6 @@ public class ForecastFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.forecastfragment, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_refresh) {
-
-            updateForecastDataList();
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void updateForecastDataList() {
