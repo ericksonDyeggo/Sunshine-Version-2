@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Preferences-->
+    <!--Location-->
+    <string name="preferences_location_key" translatable="false">location</string>
+    <string name="preferences_location_default" translatable="false">94043</string>
+    <string name="preferences_location_title">Location</string>
+
+    <!--Metric-->
+    <string name="preferences_metric_key" translatable="false">metric</string>
+    <string name="preferences_metric_title">Metric</string>
+    <string-array name="preferences_metric_options_values">
+        <item>Metric</item>
+        <item>Imperial</item>
+    </string-array>
+
+    <string-array name="preferences_metric_options_entries">
+        <item name="preferences_metric_default" translatable="false">metric</item>
+        <item translatable="false">imperial</item>
+    </string-array>
+
+    <!--General-->
     <string name="app_name">Sunshine</string>
     <string name="action_settings">Settings</string>
     <string name="action_refresh" translatable="false">Refresh</string>
+
+    <!--Details-->
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>

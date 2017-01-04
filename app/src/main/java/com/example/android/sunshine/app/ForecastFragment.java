@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
@@ -16,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,10 +86,37 @@ public class ForecastFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.forecastfragment, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_refresh) {
+
+            updateForecastDataList();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateForecastDataList();
+    }
+
     private void updateForecastDataList() {
         FetchWeatherTask task = new FetchWeatherTask();
 
-        String postalCode = "94043";
+        String postalCode = PreferenceManager.getDefaultSharedPreferences(getActivity())
+                .getString(getString(R.string.preferences_location_key), getString(R.string.preferences_location_default));
+
         String api_key = getString(R.string.api_key);
 
         task.execute(postalCode, api_key);
