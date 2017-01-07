@@ -15,9 +15,11 @@
         <item>Imperial</item>
     </string-array>
 
+    <string name="preferences_metric_default" translatable="false">metric</string>
+    <string name="preferences_metric_imperial" translatable="false">imperial</string>
     <string-array name="preferences_metric_options_entries">
-        <item name="preferences_metric_default" translatable="false">metric</item>
-        <item translatable="false">imperial</item>
+        <item>@string/preferences_metric_default</item>
+        <item>@string/preferences_metric_imperial</item>
     </string-array>
 
     <!--General-->

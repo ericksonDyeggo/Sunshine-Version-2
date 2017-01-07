@@ -5,8 +5,8 @@
         android:key="@string/preferences_location_key"
         android:title="@string/preferences_location_title" />
     <ListPreference
-        android:entries="@array/preferences_metric_options_entries"
-        android:entryValues="@array/preferences_metric_options_values"
+        android:entryValues="@array/preferences_metric_options_entries"
+        android:entries="@array/preferences_metric_options_values"
         android:key="@string/preferences_metric_key"
         android:title="@string/preferences_metric_title" />
 </PreferenceScreen>
