@@ -27,6 +27,9 @@
     <string name="action_settings">Settings</string>
     <string name="action_refresh" translatable="false">Refresh</string>
 
+    <!--Main-->
+    <string name="action_show_in_maps">Show my location</string>
+
     <!--Details-->
     <string name="title_activity_detail">DetailActivity</string>
 
