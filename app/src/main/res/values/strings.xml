@@ -24,11 +24,12 @@
 
     <!--General-->
     <string name="app_name">Sunshine</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_refresh" translatable="false">Refresh</string>
 
-    <!--Main-->
+    <!--Actions-->
+    <string name="action_refresh" translatable="false">Refresh</string>
     <string name="action_show_in_maps">Show my location</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share</string>
 
     <!--Details-->
     <string name="title_activity_detail">DetailActivity</string>
